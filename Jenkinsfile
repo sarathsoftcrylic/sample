@@ -13,6 +13,7 @@ pipeline {
  stage('01-Environment settings') {
    steps {
    echo "Received inputs are , \nJenkins node : jenkins-slave.lucktastic.com \nBuild tool: Maven\n"
+   echo "env.BRANCH_NAME"
    }
   }
   
