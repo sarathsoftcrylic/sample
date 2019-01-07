@@ -19,7 +19,7 @@ pipeline {
   
   stage('02-Build') {
    steps {
-    sh 'if [ $GIT_BRANCH == 'develop' ];then mvn clean install; fi'
+    sh 'if [ env.GIT_BRANCH == 'develop' ];then mvn clean install; fi'
    }
   }
  }
