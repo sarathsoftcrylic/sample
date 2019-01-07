@@ -19,7 +19,13 @@ pipeline {
   
   stage('02-Build') {
    steps {
-    sh "if [ $GIT_BRANCH == 'develop' ];then mvn clean install; fi"
+    sh '''if [ $GIT_BRANCH == 'develop' ];then
+	   echo "deploying to staging";
+	   elif [ $GIT_BRANCH == 'master' ];then
+	   echo "deploying to prod";
+	   else
+	   	echo "deploying PR to dev";
+	   fi'''
    }
   }
  }
