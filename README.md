@@ -1,4 +1,4 @@
-# example
+# example maven
 
 Example Maven project generated using `maven-archetype-quickstart`
 
@@ -25,6 +25,3 @@ and the dependency:
 		<version>0.1</version>
 	</dependency>
 ```
-
-
-This is new1

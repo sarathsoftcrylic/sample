@@ -13,12 +13,21 @@ pipeline {
  stage('01-Environment settings') {
    steps {
    echo "Received inputs are , \nJenkins node : jenkins-slave.lucktastic.com \nBuild tool: Maven\n"
+   echo "$GIT_BRANCH"
    }
   }
   
   stage('02-Build') {
    steps {
-    sh 'mvn clean install'
+    sh '''
+           if [ $GIT_BRANCH == 'develop' ];then
+	   echo "deploying to staging";
+	   elif [ $GIT_BRANCH == 'master' ];then
+	   echo "deploying to prod";
+	   else
+	   	echo "deploying PR to dev";
+	   fi
+      '''
    }
   }
  }
